@@ -29,14 +29,16 @@ public class CalcoloBigliettoTreno {
         double prezzoKm = 0.21;
         double prezzoCorsa = prezzoKm * kmPercorrere;
         double prezzoFinale = 0;
+        double scontoUnder = 0.80;
+        double scontoOver = 0.60;
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
 
         if (etaPasseggero < 18) {
-            prezzoFinale = prezzoCorsa / 100 * 80;
+            prezzoFinale = prezzoCorsa * scontoUnder;
             System.out.println("Il prezzo della corsa è di : " + decimalFormat.format(prezzoFinale) + "€");
         } else if (etaPasseggero >= 65) {
-            prezzoFinale = prezzoCorsa / 100 * 60;
+            prezzoFinale = prezzoCorsa * scontoOver;
             System.out.println("Il prezzo della corsa è di : " + decimalFormat.format(prezzoFinale) + "€");
         } else {
             System.out.println("Il prezzo della corsa è di : " + decimalFormat.format(prezzoCorsa) + "€");
