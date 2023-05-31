@@ -8,19 +8,29 @@ Bonus: invece che 100, chiedere all’utente quanti numeri vuole stampare
 
 package org.lessons.java;
 
+import java.util.Scanner;
+
 public class FizzBuzz {
     public static void main(String[] args) {
-        for (int i = 1; i < 101; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
+        Scanner keyboardReader = new Scanner(System.in);
+        System.out.println("Quanti numeri vuoi stampare?");
+        int numeriDaStampare = keyboardReader.nextInt();
 
-            } else if (i % 5 == 0) {
-                System.out.println("Buzz");
+        if (numeriDaStampare < 1 || numeriDaStampare > 1000) {
+            System.out.println("Inserire un numero tra 1 e 1000");
+        } else {
+            for (int i = 1; i <= numeriDaStampare; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    System.out.println("FizzBuzz");
 
-            } else if (i % 3 == 0) {
-                System.out.println("Fizz");
-            } else {
-                System.out.println(i);
+                } else if (i % 5 == 0) {
+                    System.out.println("Buzz");
+
+                } else if (i % 3 == 0) {
+                    System.out.println("Fizz");
+                } else {
+                    System.out.println(i);
+                }
             }
         }
     }
